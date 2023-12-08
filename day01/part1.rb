@@ -1,7 +1,3 @@
-require 'numbers_in_words'
-require 'numbers_in_words/duck_punch'
-
-
 if ARGV.empty?
   data = DATA.readlines(chomp: true)
 else
@@ -32,27 +28,6 @@ end
 
 # p results
 
-# Part 2
-
-def calibrate_value(line)
-  first_number = convert(line[0])
-  second_number = convert(line[-1])
-  total = (first_number.to_s + second_number.to_s).to_i
-  total
-end
-
-def convert(value)
-  if value.match(/\d/) 
-    value
-  else
-    value.in_numbers
-  end
-end
-
-results = data
-  .map { |line| line.scan(/\d|one|two|three|four|five|six|seven|eight|nine/) }
-  .map { |line| calibrate_value(line) }
-  .sum
 
   
 p results
